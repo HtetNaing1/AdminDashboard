@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  client:
+    build: ./client
+    container_name: client_c
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./client:/client_d
+      - /client_d/node_modules
+  server:
+    build: ./server
+    container_name: server_c
+    ports:
+      - '4000:5001'
+    volumes:
+      - ./server:/server_d
+      - /server_d/node_modules
