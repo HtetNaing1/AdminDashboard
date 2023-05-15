@@ -39,7 +39,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+    app.listen(POR, () => console.log(`Server Port: ${PORT}`));
 
     /* ONLY ADD DATA ONE TIME */
     // AffiliateStat.insertMany(dataAffiliateStat);
