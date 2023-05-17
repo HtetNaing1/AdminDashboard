@@ -27,8 +27,8 @@ import {
   AdminPanelSettingsOutlined,
   TrendingUpOutlined,
   PieChartOutlined,
+  Opacity,
 } from "@mui/icons-material";
-
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
@@ -94,6 +94,7 @@ const navItems = [
 ];
 
 const Sidebar = ({
+  user,
   drawerWidth,
   isSidebarOpen,
   setIsSidebarOpen,
@@ -127,6 +128,7 @@ const Sidebar = ({
             },
           }}
         >
+        <FlexBetween flexDirection={"column"} gap={"3rem"}>
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
@@ -192,6 +194,42 @@ const Sidebar = ({
               })}
             </List>
           </Box>
+          <Box position="sticky" bottom="0rem" backgroundColor={theme.palette.background.alt}>
+            <Divider />
+            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 1rem 3rem">
+              <Box
+                component="img"
+                alt="profile"
+                src={profileImage}
+                height="40px"
+                width="40px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
+              <Box textAlign="left">
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.9rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+                <Typography
+                  fontSize="0.8rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+              <SettingsOutlined
+                sx={{
+                  color: theme.palette.secondary[300],
+                  fontSize: "25px ",
+                }}
+              />
+            </FlexBetween>
+          </Box>
+          </FlexBetween>
         </Drawer>
       )}
     </Box>
