@@ -1,5 +1,5 @@
-import Product from "../models/Product";
-import ProductStat from "../models/ProductStat";
+import Product from "../models/Product.js";
+import ProductStat from "../models/ProductStat.js";
 
 export const getProducts = async (req, res) => {
   try {
@@ -7,7 +7,7 @@ export const getProducts = async (req, res) => {
 
     const prodcutsWithStats = await Promise.all(
       products.map(async (product) => {
-        const stat = await Product.find({
+        const stat = await ProductStat.find({
           productId: product._id,
         });
         return {
