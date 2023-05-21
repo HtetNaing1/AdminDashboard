@@ -27,7 +27,7 @@ export const getUserPerformance = async (req, res) => {
         },
       },
       {
-        $unwind: "affiliateStats",
+        $unwind: "$affiliateStats",
       },
     ]);
 
